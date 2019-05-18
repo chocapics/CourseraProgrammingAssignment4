@@ -16,7 +16,7 @@ best <- function(state, outcome) {
         else colnum <- 23
         
         # filter all the hospitals 
-        outcome_data[ ,colnum] <- as.numeric(outcome_data[ ,colnum])
+        outcome_data[ ,colnum] <- suppressWarnings(as.numeric(outcome_data[ ,colnum]))
         min_row <- which(outcome_data[ ,colnum] == min(outcome_data[ ,colnum], na.rm = TRUE))
         hospitals <- outcome_data[min_row, 2]
         hospitals <- sort(hospitals)
